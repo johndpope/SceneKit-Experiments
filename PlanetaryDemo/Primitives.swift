@@ -124,7 +124,7 @@ func geoSphere(radius:CGFloat, segmentCount:Int, amplitude:CGFloat, floor:CGFloa
     
     
     
-    let geomElement:SCNGeometryElement = SCNGeometryElement(
+    let geomElement:SCNGeometryElement = SCNGeometryElement(           
         data: sph.geometryElementAtIndex(0).data,
         primitiveType: SCNGeometryPrimitiveType.Triangles,
         primitiveCount: sph.geometryElementAtIndex(0).primitiveCount,

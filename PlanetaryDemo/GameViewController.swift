@@ -33,19 +33,20 @@ class GameViewController: UIViewController {
         cameraNode.camera = camera
         scene.rootNode.addChildNode(cameraNode)
         
-        // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 1000.0)
+        
         
         
         // create the planet object
        
        
-        let planetNode = Planetoid.planetWithParameters(100.0, elevation: 8, seaLevel: 7.5,segmentCount:700)
+        let planetNode = Planetoid.planetWithParameters(100.0, elevation: 8, seaLevel: 7.5,segmentCount:700,type:BodyType.Planet)
         planetNode.position = SCNVector3(x: 0, y: 0, z: 0)
         scene.rootNode.addChildNode(planetNode)
         
         
-        let moonNode = Planetoid.planetWithParameters(20.0, elevation: 12, seaLevel: 7.5,segmentCount: 20)
+        // and the moon object
+        
+        let moonNode = Planetoid.planetWithParameters(20.0, elevation: 12, seaLevel: 7.5,segmentCount: 20,type:BodyType.Moon)
         var moonPosition = planetNode.position
         moonPosition.x += 200.0;
         moonNode.position = moonPosition
@@ -59,6 +60,12 @@ class GameViewController: UIViewController {
         moonNode.addAnimation(animation, forKey: nil)
 
         
+      
+       
+        
+        // place the camera
+       cameraNode.position = SCNVector3(x: 0, y: 0, z:500)
+        
         scene.rootNode.addChildNode(moonNode)
         
  //        create and add a light to the scene
@@ -70,13 +77,9 @@ class GameViewController: UIViewController {
         
         
         
-        cameraNode.constraints = nil
-        let targetNode = SCNLookAtConstraint(target: moonNode);
-        targetNode.gimbalLockEnabled = true;
         
         
-        cameraNode.constraints = [targetNode];
-        // get its material
+      
         
         
         // retrieve the SCNView
@@ -89,13 +92,16 @@ class GameViewController: UIViewController {
         scnView.scene = scene
         
         // allows the user to manipulate the camera
-       // scnView.allowsCameraControl = true
+        scnView.allowsCameraControl = true
         
         // show statistics such as fps and timing information
         scnView.showsStatistics = true
         
         // configure the view
         scnView.backgroundColor = UIColor.blackColor()
+        
+        
+// TODO: complete scntechnique for second pass shading       
     /*
         if let path = NSBundle.mainBundle().pathForResource("tech", ofType: "plist") {
             if let dico1 = NSDictionary(contentsOfFile: path)  {
@@ -149,17 +155,14 @@ class GameViewController: UIViewController {
             let result: AnyObject! = hitResults[0]
             
             
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.setAnimationDuration(3.0)
             
             
             cameraNode.constraints = nil
-            let targetNode = SCNLookAtConstraint(target: result.node!);
-            targetNode.gimbalLockEnabled = true;
+            let targetNode = SCNLookAtConstraint(target: result.node!);   //somehow this only works on double tap with scnkit camera control
+            targetNode.gimbalLockEnabled = false;
             
             cameraNode.constraints = [targetNode];
-            SCNTransaction.commit()
+          
         }
     }
 

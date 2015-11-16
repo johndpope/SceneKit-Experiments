@@ -8,7 +8,14 @@
 
 import Foundation
 import SceneKit
-//import simd
+import simd
+
+
+
+enum BodyType : Int {  //type of planetary body
+    case Planet = 1, Moon, Gas, Asteroid
+}
+
 
 // 🌏 planet node with simplex noise displacement geometry
 
@@ -28,32 +35,31 @@ class Planetoid: SCNNode {
      
      */
 
-    class func planetWithParameters(radius:CGFloat, elevation:CGFloat, seaLevel:CGFloat, segmentCount:Int) -> SCNNode {
+    class func planetWithParameters(radius:CGFloat, elevation:CGFloat, seaLevel:CGFloat, segmentCount:Int, type:BodyType) -> SCNNode {
        
-        var node = SCNNode()  //this node will hold all the parts of the planet
+        let node = SCNNode()  //this node will hold all the parts of the planet
         
         let sphereGeometry = geoSphere(radius, segmentCount: segmentCount, amplitude: elevation, floor: seaLevel, octaves: 10, frequency: 10.0 )
-        let seaLevelGeometry = SCNSphere(radius: radius+seaLevel)
+        
+        
         let atmosphereGeometry = SCNSphere(radius: radius+elevation)
 
         
-        seaLevelGeometry.segmentCount = segmentCount            //for now the atmosphere and sea components need to at the same
+                                                                //for now the atmosphere components need to at the same
         atmosphereGeometry.segmentCount = segmentCount          //subdivision level as the terrain or else it looks odd
                                                                 //need to find another way though or i'm drawing with too many polys
         
         
         let mat:SCNMaterial = sphereGeometry.firstMaterial!
-        let mat2:SCNMaterial = SCNMaterial()
-        let mat3:SCNMaterial = SCNMaterial()
-//        mat.diffuse.contents = UIColor.brownColor()
-     //    mat.diffuse.contents = UIImage(named: "1752-diagonal-stripes-2880x1800-abstract-wallpaper")
-        mat3.diffuse.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-        mat3.ambient.contents = UIColor(red: 1.0, green: 0.7, blue: 1.0, alpha: 1.0)
+        let atmosphereMat:SCNMaterial = SCNMaterial()
+
+        atmosphereMat.diffuse.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+        atmosphereMat.ambient.contents = UIColor(red: 1.0, green: 0.7, blue: 1.0, alpha: 1.0)
        
                 let bundle = NSBundle.mainBundle()
                 let surfacePath = bundle.pathForResource("heightmap", ofType: "shader")
-//                let geometryPath = bundle.pathForResource("NoiseBasis", ofType: "shader")
-//                let lightingPath = bundle.pathForResource("toon", ofType: "shader")
+//                let geometryPath = bundle.pathForResource("NoiseBasis", ofType: "shader")  //too slow
+//                let lightingPath = bundle.pathForResource("toon", ofType: "shader")        // toon shader for ships
         
         
                 //reading
@@ -69,12 +75,24 @@ class Planetoid: SCNNode {
         
                 }
         
+        
+        var lowColor = float4(0.5,0.5,0.5,1.0);
+        var midColor = float4(0.5,0.55,0.5,1.0);
+        var highColor = float4(0.6,0.6,0.6,1.0);
+        
         SCNTransaction.begin()
         
         
             mat.setValue(radius, forKey: "radius")
             mat.setValue(seaLevel, forKey: "seaLevel")
             mat.setValue(elevation, forKey: "elevation")
+        mat.setValue(0, forKey: "bodyType")
+        
+// TODO: figure out how to pass color into shader modifiers
+//            mat.setValue(lowColor, forKey: "lowColor")
+//            mat.setValue(midColor, forKey: "midColor")
+//            mat.setValue(highColor, forKey: "highColor")
+        
         
      
         
@@ -83,24 +101,24 @@ class Planetoid: SCNNode {
         
         SCNTransaction.commit()
         
-        seaLevelGeometry.materials = [mat2]
-        atmosphereGeometry.materials = [mat3]
+
+        atmosphereGeometry.materials = [atmosphereMat]
     
         
-        seaLevelGeometry.firstMaterial!.diffuse.contents = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1.0)
+
         
         
         let sphereNode = SCNNode(geometry: sphereGeometry)
         sphereNode.position = SCNVector3(x: 0, y: 0, z: 0)
         node.addChildNode(sphereNode)
         
-        let seaLevelNode = SCNNode(geometry: seaLevelGeometry)
-        seaLevelNode.position = SCNVector3(x: 0, y: 0, z: 0)
         let atmosphereNode = SCNNode(geometry: atmosphereGeometry)
         atmosphereNode.position = SCNVector3(x: 0, y: 0, z: 0)
         
-    //    sphereNode.addChildNode(seaLevelNode)
-        sphereNode.addChildNode(atmosphereNode)
+        
+        if(type==BodyType.Planet){
+            sphereNode.addChildNode(atmosphereNode)
+        }
         
         let animation = CABasicAnimation(keyPath: "rotation")
         animation.toValue = NSValue(SCNVector4: SCNVector4(x: Float(0), y: Float(1), z: Float(0), w: Float(M_PI)*2))
