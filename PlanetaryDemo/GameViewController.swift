@@ -10,44 +10,80 @@ import UIKit
 import QuartzCore
 import SceneKit
 
+
 class GameViewController: UIViewController {
 
+    let camera:SCNCamera = SCNCamera()
+    let cameraNode = SCNNode()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         // create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
+        
+        
+       
+        scene.background.contents = ["skyboxRT", "skyboxLF", "skyboxUP", "skyboxDN", "skyboxBK", "skyboxFT"]
         
         // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
+        
+        camera.zFar = 10000000    // zFar must be less than DBL_Max or skybox texture will not be visible, so thisis arbitrary
+        
+        cameraNode.camera = camera
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 1000.0)
         
-        // create and add a light to the scene
+        
+        // create the planet object
+       
+        //let planetNode = Planetoid.planetWithParameters(1000.0, elevation: 50.5,seaLevel: 5.5,segmentCount: 400)
+       let planetNode = Planetoid.planetWithParameters(100.0, elevation: 8, seaLevel: 7.5,segmentCount:700)
+        planetNode.position = SCNVector3(x: 0, y: 0, z: 0)
+        scene.rootNode.addChildNode(planetNode)
+        
+        
+        let moonNode = Planetoid.planetWithParameters(20.0, elevation: 12, seaLevel: 7.5,segmentCount: 20)
+        var moonPosition = planetNode.position
+        moonPosition.x += 200.0;
+        moonNode.position = moonPosition
+       moonNode.pivot = SCNMatrix4MakeTranslation(-400.0, 0, 0)
+        
+        let animation = CABasicAnimation(keyPath: "rotation")
+        animation.toValue = NSValue(SCNVector4: SCNVector4(x: Float(0), y: Float(1), z: Float(0), w: Float(M_PI)*2))
+        animation.duration = 200
+        
+        animation.repeatCount = MAXFLOAT //repeat forever
+        moonNode.addAnimation(animation, forKey: nil)
+
+        
+        scene.rootNode.addChildNode(moonNode)
+        
+ //        create and add a light to the scene
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
         lightNode.light!.type = SCNLightTypeOmni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
+        lightNode.position = SCNVector3(x: 0, y: 10000, z: 10000)
         scene.rootNode.addChildNode(lightNode)
         
-        // create and add an ambient light to the scene
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = SCNLightTypeAmbient
-        ambientLightNode.light!.color = UIColor.darkGrayColor()
-        scene.rootNode.addChildNode(ambientLightNode)
         
-        // retrieve the ship node
-        let ship = scene.rootNode.childNodeWithName("ship", recursively: true)!
         
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 2, z: 0, duration: 1)))
+        cameraNode.constraints = nil
+        let targetNode = SCNLookAtConstraint(target: moonNode);
+        targetNode.gimbalLockEnabled = true;
+        
+        
+        cameraNode.constraints = [targetNode];
+        // get its material
+        
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
+        
+        scnView.jitteringEnabled = true
+        scnView.antialiasingMode = SCNAntialiasingMode.Multisampling2X
         
         // set the scene to the view
         scnView.scene = scene
@@ -60,10 +96,44 @@ class GameViewController: UIViewController {
         
         // configure the view
         scnView.backgroundColor = UIColor.blackColor()
+    /*
+        if let path = NSBundle.mainBundle().pathForResource("tech", ofType: "plist") {
+            if let dico1 = NSDictionary(contentsOfFile: path)  {
+                let dico = dico1 as! [String : AnyObject]
+                //println(dico)
+                let technique = SCNTechnique(dictionary:dico)
+                technique?.setValue(NSValue(CGSize: CGSizeApplyAffineTransform(self.view.frame.size, CGAffineTransformMakeScale(2.0, 2.0))), forKeyPath: "size_screen")
+                scnView.technique = technique
+            }
+        }
         
-        // add a tap gesture recognizer
+  */
+        
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
         scnView.addGestureRecognizer(tapGesture)
+    }
+    
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            return .AllButUpsideDown
+        } else {
+            return .All
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
@@ -77,7 +147,11 @@ class GameViewController: UIViewController {
         if hitResults.count > 0 {
             // retrieved the first clicked object
             let result: AnyObject! = hitResults[0]
+            cameraNode.constraints = nil
+            let targetNode = SCNLookAtConstraint(target: result.node!);
+            targetNode.gimbalLockEnabled = true;
             
+            cameraNode.constraints = [targetNode];
             // get its material
             let material = result.node!.geometry!.firstMaterial!
             
@@ -99,27 +173,6 @@ class GameViewController: UIViewController {
             
             SCNTransaction.commit()
         }
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
 }

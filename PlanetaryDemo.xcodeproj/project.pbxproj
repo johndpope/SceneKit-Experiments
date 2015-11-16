@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0A4B6901BF9256500441855 /* tech.vsh in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B68F1BF9256500441855 /* tech.vsh */; };
+		A0A4B6921BF9257300441855 /* tech.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B6911BF9257300441855 /* tech.fsh */; };
+		A0A4B6961BF92D2500441855 /* tech.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B6951BF92D2500441855 /* tech.plist */; };
+		A0A4B69B1BF933E700441855 /* drops_technique.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B6971BF933E700441855 /* drops_technique.plist */; };
+		A0A4B69C1BF933E700441855 /* drops.vsh in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B6981BF933E700441855 /* drops.vsh */; };
+		A0A4B69D1BF933E700441855 /* drops.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B6991BF933E700441855 /* drops.fsh */; };
+		A0A4B69E1BF933E700441855 /* normal_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0A4B69A1BF933E700441855 /* normal_map.jpg */; };
+		A0EB3DDE1BF506D200A900DB /* toon.shader in Resources */ = {isa = PBXBuildFile; fileRef = A0EB3DDD1BF506D200A900DB /* toon.shader */; };
+		A0EB3DE31BF5076B00A900DB /* heightmap.shader in Resources */ = {isa = PBXBuildFile; fileRef = A0EB3DE21BF5076B00A900DB /* heightmap.shader */; };
+		A0EB3E671BF81ED300A900DB /* NoiseBasis.shader in Resources */ = {isa = PBXBuildFile; fileRef = A0EB3E661BF81ED300A900DB /* NoiseBasis.shader */; };
 		A0F3B4331BF4271E00534935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4321BF4271E00534935 /* AppDelegate.swift */; };
 		A0F3B4351BF4271E00534935 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4341BF4271E00534935 /* art.scnassets */; };
 		A0F3B4371BF4271E00534935 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4361BF4271E00534935 /* GameViewController.swift */; };
@@ -15,6 +25,17 @@
 		A0F3B43F1BF4271E00534935 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B43D1BF4271E00534935 /* LaunchScreen.storyboard */; };
 		A0F3B44A1BF4271E00534935 /* PlanetaryDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4491BF4271E00534935 /* PlanetaryDemoTests.swift */; };
 		A0F3B4551BF4271E00534935 /* PlanetaryDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4541BF4271E00534935 /* PlanetaryDemoUITests.swift */; };
+		A0F3B4641BF4293500534935 /* SimplexNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4631BF4293500534935 /* SimplexNoise.swift */; };
+		A0F3B4661BF42A9D00534935 /* Primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4651BF42A9D00534935 /* Primitives.swift */; };
+		A0F3B4791BF4356700534935 /* skyboxBK.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4731BF4356700534935 /* skyboxBK.png */; };
+		A0F3B47A1BF4356700534935 /* skyboxDN.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4741BF4356700534935 /* skyboxDN.png */; };
+		A0F3B47B1BF4356700534935 /* skyboxFT.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4751BF4356700534935 /* skyboxFT.png */; };
+		A0F3B47C1BF4356700534935 /* skyboxLF.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4761BF4356700534935 /* skyboxLF.png */; };
+		A0F3B47D1BF4356700534935 /* skyboxRT.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4771BF4356700534935 /* skyboxRT.png */; };
+		A0F3B47E1BF4356700534935 /* skyboxUP.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4781BF4356700534935 /* skyboxUP.png */; };
+		A0F3B4C01BF4605200534935 /* Planetoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4BF1BF4605200534935 /* Planetoid.swift */; };
+		A0F3B4C21BF4736800534935 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4C11BF4736800534935 /* Utility.swift */; };
+		A0F3B4C41BF4831300534935 /* 1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4C31BF4831300534935 /* 1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0A4B68F1BF9256500441855 /* tech.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = tech.vsh; sourceTree = "<group>"; };
+		A0A4B6911BF9257300441855 /* tech.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = tech.fsh; sourceTree = "<group>"; };
+		A0A4B6951BF92D2500441855 /* tech.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tech.plist; sourceTree = "<group>"; };
+		A0A4B6971BF933E700441855 /* drops_technique.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = drops_technique.plist; sourceTree = "<group>"; };
+		A0A4B6981BF933E700441855 /* drops.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = drops.vsh; sourceTree = "<group>"; };
+		A0A4B6991BF933E700441855 /* drops.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = drops.fsh; sourceTree = "<group>"; };
+		A0A4B69A1BF933E700441855 /* normal_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = normal_map.jpg; sourceTree = "<group>"; };
+		A0EB3DDD1BF506D200A900DB /* toon.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toon.shader; sourceTree = "<group>"; };
+		A0EB3DE21BF5076B00A900DB /* heightmap.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = heightmap.shader; sourceTree = "<group>"; };
+		A0EB3E661BF81ED300A900DB /* NoiseBasis.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NoiseBasis.shader; sourceTree = "<group>"; };
 		A0F3B42F1BF4271E00534935 /* PlanetaryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F3B4321BF4271E00534935 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0F3B4341BF4271E00534935 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -49,6 +80,17 @@
 		A0F3B4501BF4271E00534935 /* PlanetaryDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetaryDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F3B4541BF4271E00534935 /* PlanetaryDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryDemoUITests.swift; sourceTree = "<group>"; };
 		A0F3B4561BF4271E00534935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F3B4631BF4293500534935 /* SimplexNoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplexNoise.swift; sourceTree = "<group>"; };
+		A0F3B4651BF42A9D00534935 /* Primitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Primitives.swift; sourceTree = "<group>"; };
+		A0F3B4731BF4356700534935 /* skyboxBK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyboxBK.png; sourceTree = "<group>"; };
+		A0F3B4741BF4356700534935 /* skyboxDN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyboxDN.png; sourceTree = "<group>"; };
+		A0F3B4751BF4356700534935 /* skyboxFT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyboxFT.png; sourceTree = "<group>"; };
+		A0F3B4761BF4356700534935 /* skyboxLF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyboxLF.png; sourceTree = "<group>"; };
+		A0F3B4771BF4356700534935 /* skyboxRT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyboxRT.png; sourceTree = "<group>"; };
+		A0F3B4781BF4356700534935 /* skyboxUP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyboxUP.png; sourceTree = "<group>"; };
+		A0F3B4BF1BF4605200534935 /* Planetoid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planetoid.swift; sourceTree = "<group>"; };
+		A0F3B4C11BF4736800534935 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		A0F3B4C31BF4831300534935 /* 1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg"; path = "../1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +118,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0A4B68D1BF924BA00441855 /* technique */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4B68F1BF9256500441855 /* tech.vsh */,
+				A0A4B6911BF9257300441855 /* tech.fsh */,
+				A0A4B6951BF92D2500441855 /* tech.plist */,
+			);
+			name = technique;
+			sourceTree = "<group>";
+		};
+		A0A4B68E1BF924CA00441855 /* modifier */ = {
+			isa = PBXGroup;
+			children = (
+				A0EB3DDD1BF506D200A900DB /* toon.shader */,
+				A0EB3DE21BF5076B00A900DB /* heightmap.shader */,
+				A0EB3E661BF81ED300A900DB /* NoiseBasis.shader */,
+			);
+			name = modifier;
+			sourceTree = "<group>";
+		};
+		A0A4B69F1BF9340000441855 /* drops */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4B6971BF933E700441855 /* drops_technique.plist */,
+				A0A4B6981BF933E700441855 /* drops.vsh */,
+				A0A4B6991BF933E700441855 /* drops.fsh */,
+				A0A4B69A1BF933E700441855 /* normal_map.jpg */,
+			);
+			name = drops;
+			sourceTree = "<group>";
+		};
+		A0EB3DE11BF5071100A900DB /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4B69F1BF9340000441855 /* drops */,
+				A0A4B68D1BF924BA00441855 /* technique */,
+				A0A4B68E1BF924CA00441855 /* modifier */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		A0F3B4261BF4271D00534935 = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +183,22 @@
 			isa = PBXGroup;
 			children = (
 				A0F3B4321BF4271E00534935 /* AppDelegate.swift */,
+				A0F3B4731BF4356700534935 /* skyboxBK.png */,
+				A0F3B4741BF4356700534935 /* skyboxDN.png */,
+				A0F3B4751BF4356700534935 /* skyboxFT.png */,
+				A0F3B4761BF4356700534935 /* skyboxLF.png */,
+				A0F3B4771BF4356700534935 /* skyboxRT.png */,
+				A0F3B4781BF4356700534935 /* skyboxUP.png */,
 				A0F3B4341BF4271E00534935 /* art.scnassets */,
+				A0F3B4621BF4272D00534935 /* Noise */,
 				A0F3B4361BF4271E00534935 /* GameViewController.swift */,
+				A0EB3DE11BF5071100A900DB /* Shaders */,
+				A0F3B4BF1BF4605200534935 /* Planetoid.swift */,
+				A0F3B4651BF42A9D00534935 /* Primitives.swift */,
+				A0F3B4C11BF4736800534935 /* Utility.swift */,
 				A0F3B4381BF4271E00534935 /* Main.storyboard */,
 				A0F3B43B1BF4271E00534935 /* Assets.xcassets */,
+				A0F3B4C31BF4831300534935 /* 1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg */,
 				A0F3B43D1BF4271E00534935 /* LaunchScreen.storyboard */,
 				A0F3B4401BF4271E00534935 /* Info.plist */,
 			);
@@ -126,6 +221,14 @@
 				A0F3B4561BF4271E00534935 /* Info.plist */,
 			);
 			path = PlanetaryDemoUITests;
+			sourceTree = "<group>";
+		};
+		A0F3B4621BF4272D00534935 /* Noise */ = {
+			isa = PBXGroup;
+			children = (
+				A0F3B4631BF4293500534935 /* SimplexNoise.swift */,
+			);
+			name = Noise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +335,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A4B69D1BF933E700441855 /* drops.fsh in Resources */,
+				A0F3B47E1BF4356700534935 /* skyboxUP.png in Resources */,
 				A0F3B4351BF4271E00534935 /* art.scnassets in Resources */,
+				A0F3B47D1BF4356700534935 /* skyboxRT.png in Resources */,
+				A0F3B47A1BF4356700534935 /* skyboxDN.png in Resources */,
+				A0A4B69B1BF933E700441855 /* drops_technique.plist in Resources */,
+				A0A4B6961BF92D2500441855 /* tech.plist in Resources */,
+				A0F3B4791BF4356700534935 /* skyboxBK.png in Resources */,
+				A0A4B69C1BF933E700441855 /* drops.vsh in Resources */,
+				A0F3B47C1BF4356700534935 /* skyboxLF.png in Resources */,
+				A0A4B6901BF9256500441855 /* tech.vsh in Resources */,
 				A0F3B43F1BF4271E00534935 /* LaunchScreen.storyboard in Resources */,
 				A0F3B43C1BF4271E00534935 /* Assets.xcassets in Resources */,
+				A0EB3DE31BF5076B00A900DB /* heightmap.shader in Resources */,
+				A0EB3DDE1BF506D200A900DB /* toon.shader in Resources */,
+				A0A4B69E1BF933E700441855 /* normal_map.jpg in Resources */,
+				A0A4B6921BF9257300441855 /* tech.fsh in Resources */,
+				A0F3B4C41BF4831300534935 /* 1752-diagonal-stripes-2880x1800-abstract-wallpaper.jpg in Resources */,
+				A0F3B47B1BF4356700534935 /* skyboxFT.png in Resources */,
+				A0EB3E671BF81ED300A900DB /* NoiseBasis.shader in Resources */,
 				A0F3B43A1BF4271E00534935 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,8 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F3B4641BF4293500534935 /* SimplexNoise.swift in Sources */,
 				A0F3B4371BF4271E00534935 /* GameViewController.swift in Sources */,
+				A0F3B4C21BF4736800534935 /* Utility.swift in Sources */,
+				A0F3B4C01BF4605200534935 /* Planetoid.swift in Sources */,
 				A0F3B4331BF4271E00534935 /* AppDelegate.swift in Sources */,
+				A0F3B4661BF42A9D00534935 /* Primitives.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +614,7 @@
 				A0F3B45B1BF4271E00534935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0F3B45C1BF4271E00534935 /* Build configuration list for PBXNativeTarget "PlanetaryDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +623,7 @@
 				A0F3B45E1BF4271E00534935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0F3B45F1BF4271E00534935 /* Build configuration list for PBXNativeTarget "PlanetaryDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +632,7 @@
 				A0F3B4611BF4271E00534935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
