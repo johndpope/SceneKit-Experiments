@@ -5,6 +5,9 @@
 //  Created by Jacob Martin on 9/1/15.
 //  Copyright © 2015 Jacob Martin. All rights reserved.
 //
+//Thank you Stefan Gustavson for your elucidating simplex noise...
+//http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
+//
 
 import Foundation
 
@@ -262,11 +265,13 @@ func simplexNoise3D(x:Double, y:Double, z:Double) -> Double{
 
 }
 
-//4 Dimensional Simplex Noise
+//4 Dimensional Simplex Noise (not yet implemented)
 func simplexNoise4D(x:Double, y:Double, z:Double, w:Double) -> Double{
    
-    let F4 = 0.309016994 // (Math.sqrt(5.0)-1.0)/4.0
-    let G4 = 0.138196601 // (5.0-Math.sqrt(5.0))/20.0
+    
+
+    let F4 = 0.309016994
+    let G4 = 0.138196601
     
     var n0,n1,n2,n3,n4:Double
     

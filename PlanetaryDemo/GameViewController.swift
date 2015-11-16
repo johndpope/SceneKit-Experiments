@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
         
         // create and add a camera to the scene
         
-        camera.zFar = 10000000    // zFar must be less than DBL_Max or skybox texture will not be visible, so thisis arbitrary
+        camera.zFar = 10000    // zFar must be less than DBL_Max or skybox texture will not be visible, so this is arbitrary
         
         cameraNode.camera = camera
         scene.rootNode.addChildNode(cameraNode)
@@ -39,8 +39,8 @@ class GameViewController: UIViewController {
         
         // create the planet object
        
-        //let planetNode = Planetoid.planetWithParameters(1000.0, elevation: 50.5,seaLevel: 5.5,segmentCount: 400)
-       let planetNode = Planetoid.planetWithParameters(100.0, elevation: 8, seaLevel: 7.5,segmentCount:700)
+       
+        let planetNode = Planetoid.planetWithParameters(100.0, elevation: 8, seaLevel: 7.5,segmentCount:700)
         planetNode.position = SCNVector3(x: 0, y: 0, z: 0)
         scene.rootNode.addChildNode(planetNode)
         
@@ -49,7 +49,7 @@ class GameViewController: UIViewController {
         var moonPosition = planetNode.position
         moonPosition.x += 200.0;
         moonNode.position = moonPosition
-       moonNode.pivot = SCNMatrix4MakeTranslation(-400.0, 0, 0)
+        moonNode.pivot = SCNMatrix4MakeTranslation(-400.0, 0, 0)
         
         let animation = CABasicAnimation(keyPath: "rotation")
         animation.toValue = NSValue(SCNVector4: SCNVector4(x: Float(0), y: Float(1), z: Float(0), w: Float(M_PI)*2))
@@ -89,7 +89,7 @@ class GameViewController: UIViewController {
         scnView.scene = scene
         
         // allows the user to manipulate the camera
-        scnView.allowsCameraControl = true
+       // scnView.allowsCameraControl = true
         
         // show statistics such as fps and timing information
         scnView.showsStatistics = true
@@ -147,30 +147,18 @@ class GameViewController: UIViewController {
         if hitResults.count > 0 {
             // retrieved the first clicked object
             let result: AnyObject! = hitResults[0]
+            
+            
+            // highlight it
+            SCNTransaction.begin()
+            SCNTransaction.setAnimationDuration(3.0)
+            
+            
             cameraNode.constraints = nil
             let targetNode = SCNLookAtConstraint(target: result.node!);
             targetNode.gimbalLockEnabled = true;
             
             cameraNode.constraints = [targetNode];
-            // get its material
-            let material = result.node!.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.setAnimationDuration(0.5)
-            
-            // on completion - unhighlight
-            SCNTransaction.setCompletionBlock {
-                SCNTransaction.begin()
-                SCNTransaction.setAnimationDuration(0.5)
-                
-                material.emission.contents = UIColor.blackColor()
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.redColor()
-            
             SCNTransaction.commit()
         }
     }
