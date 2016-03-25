@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
         // create a new scene
         let scene = SCNScene()
         
-        let ghost = "BOOOOOOO"
+        let ghost = "BOOOOOOjfhsd;flk;h;dsfhO"
         
        
         scene.background.contents = ["skyboxRT", "skyboxLF", "skyboxUP", "skyboxDN", "skyboxBK", "skyboxFT"]
