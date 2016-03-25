@@ -18,11 +18,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSInteger ghost = 1;
+       
         // create a new scene
         let scene = SCNScene()
         
-        
+        let ghost = "ghost"
        
         scene.background.contents = ["skyboxRT", "skyboxLF", "skyboxUP", "skyboxDN", "skyboxBK", "skyboxFT"]
         
