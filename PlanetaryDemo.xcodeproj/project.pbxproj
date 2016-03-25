@@ -14,7 +14,6 @@
 		A0EB3DE31BF5076B00A900DB /* heightmap.shader in Resources */ = {isa = PBXBuildFile; fileRef = A0EB3DE21BF5076B00A900DB /* heightmap.shader */; };
 		A0EB3E671BF81ED300A900DB /* NoiseBasis.shader in Resources */ = {isa = PBXBuildFile; fileRef = A0EB3E661BF81ED300A900DB /* NoiseBasis.shader */; };
 		A0F3B4331BF4271E00534935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4321BF4271E00534935 /* AppDelegate.swift */; };
-		A0F3B4351BF4271E00534935 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4341BF4271E00534935 /* art.scnassets */; };
 		A0F3B4371BF4271E00534935 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3B4361BF4271E00534935 /* GameViewController.swift */; };
 		A0F3B43A1BF4271E00534935 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B4381BF4271E00534935 /* Main.storyboard */; };
 		A0F3B43C1BF4271E00534935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F3B43B1BF4271E00534935 /* Assets.xcassets */; };
@@ -59,7 +58,6 @@
 		A0EB3E661BF81ED300A900DB /* NoiseBasis.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NoiseBasis.shader; sourceTree = "<group>"; };
 		A0F3B42F1BF4271E00534935 /* PlanetaryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F3B4321BF4271E00534935 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0F3B4341BF4271E00534935 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		A0F3B4361BF4271E00534935 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A0F3B4391BF4271E00534935 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0F3B43B1BF4271E00534935 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				A0F3B4761BF4356700534935 /* skyboxLF.png */,
 				A0F3B4771BF4356700534935 /* skyboxRT.png */,
 				A0F3B4781BF4356700534935 /* skyboxUP.png */,
-				A0F3B4341BF4271E00534935 /* art.scnassets */,
 				A0F3B4621BF4272D00534935 /* Noise */,
 				A0F3B4361BF4271E00534935 /* GameViewController.swift */,
 				A0EB3DE11BF5071100A900DB /* Shaders */,
@@ -313,7 +310,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F3B47E1BF4356700534935 /* skyboxUP.png in Resources */,
-				A0F3B4351BF4271E00534935 /* art.scnassets in Resources */,
 				A0F3B47D1BF4356700534935 /* skyboxRT.png in Resources */,
 				A0F3B47A1BF4356700534935 /* skyboxDN.png in Resources */,
 				A0A4B6961BF92D2500441855 /* tech.plist in Resources */,
