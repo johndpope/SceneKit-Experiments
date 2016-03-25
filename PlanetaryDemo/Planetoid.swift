@@ -16,7 +16,7 @@ enum BodyType : Int {  //type of planetary body
     case Planet = 1, Moon, Gas, Asteroid
 }
 
-
+//GHOST
 // 🌏 planet node with simplex noise displacement geometry
 
 class Planetoid: SCNNode {
